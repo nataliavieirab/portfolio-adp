@@ -1,3 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@use 'bootstrap';
+$cor-primaria: #ec6afa;
+$cor-secundaria: #6d2bc2;
+$fonte-padrao: Georgia, 'Times New Roman', serif;
+
+@use 'bootstrap/scss/bootstrap' with (
+  $primary: $cor-primaria,
+  $secondary: $cor-secundaria,
+  $font-family-base: $fonte-padrao,
+  $font-family-sans-serif: $fonte-padrao
+);
+
 @use 'bootstrap-icons';
