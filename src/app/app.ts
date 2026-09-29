@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 
+// Define um modelo de objeto dentro do componente
 interface ItemNavbar {
   titulo: string;
   url: string;
   icone: string;
 }
 
+// Componente raiz (root) da aplicação, tudo carrega através dele
 @Component({
   imports: [],
   selector: 'app-root',
