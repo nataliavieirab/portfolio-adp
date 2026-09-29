@@ -11,3 +11,21 @@ $fonte-padrao: Georgia, 'Times New Roman', serif;
 );
 
 @use 'bootstrap-icons';
+
+section {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sobre-banner-text {
+  background: linear-gradient(90deg, rgba(229, 62, 168, 0.906), rgba(236, 200, 254, 0.925) 60%);
+  background-clip: text;
+  color: transparent;
+}
+
+.sobre-banner-img {
+  background: linear-gradient(90deg, rgba(229, 62, 168, 0.906), rgba(172, 47, 189, 0.925) 60%);
+  border-radius: 33% 67% 53% 47% / 66% 41% 59% 34%;
+  height: 25rem;
+  width: 25rem;
+}
