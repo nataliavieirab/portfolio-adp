@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Navbar } from './components/navbar/navbar';
-import { Sobre } from './components/about/sobre';
+import { Sobre } from './components/sobre/sobre';
 
 // Componente raiz (root) da aplicação, tudo carrega através dele
 @Component({
