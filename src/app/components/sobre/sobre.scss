@@ -65,6 +65,7 @@ h1 {
 }
 
 .sobre-kicker {
+  position: relative;
   display: block;
   padding-bottom: 1.5rem;
   font-family: var(--fonte-serif);
@@ -75,6 +76,59 @@ h1 {
 
   @media (min-width: 640px) {
     font-size: 3.75rem;
+  }
+}
+
+.sobre-kicker-desfoque,
+.sobre-kicker-nitido {
+  display: block;
+}
+
+.sobre-kicker-desfoque {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.sobre-kicker-nitido {
+  position: relative;
+  z-index: 1;
+}
+
+.sobre-kicker-mira {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 70px;
+  height: 70px;
+  opacity: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(#fff, #fff) left top / 10px 5px no-repeat,
+    linear-gradient(#fff, #fff) left top / 5px 10px no-repeat,
+    linear-gradient(#fff, #fff) right top / 10px 5px no-repeat,
+    linear-gradient(#fff, #fff) right top / 5px 10px no-repeat,
+    linear-gradient(#fff, #fff) left bottom / 10px 5px no-repeat,
+    linear-gradient(#fff, #fff) left bottom / 5px 10px no-repeat,
+    linear-gradient(#fff, #fff) right bottom / 10px 5px no-repeat,
+    linear-gradient(#fff, #fff) right bottom / 5px 10px no-repeat;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .sobre-kicker {
+    cursor: none;
+  }
+
+  .sobre-kicker-desfoque {
+    visibility: visible;
+    filter: blur(5px);
+  }
+
+  .sobre-kicker-nitido {
+    opacity: 0;
   }
 }
 

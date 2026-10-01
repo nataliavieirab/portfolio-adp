@@ -5,7 +5,11 @@
   </div>
   <div class="sobre-miolo">
     <h1>
-      <span class="sobre-kicker">hello world, I'm</span>
+      <span class="sobre-kicker" (pointermove)="moverFoco($event)" (pointerleave)="sairFoco($event)">
+        <span class="sobre-kicker-desfoque" aria-hidden="true">hello world, I'm</span>
+        <span class="sobre-kicker-nitido">hello world, I'm</span>
+        <span class="sobre-kicker-mira" aria-hidden="true"></span>
+      </span>
       <span class="sobre-nome">
         <span class="sobre-nome-brilho" aria-hidden="true">Ɲatalia Ɓortoli Vieira</span>
         <span class="sobre-nome-texto">Ɲatalia Ɓortoli Vieira</span>
