@@ -1,10 +1,48 @@
 /* Estilos Globais do Projeto */
 
-// Variáveis Sass
+/* Tema Rosa e Roxo
 $cor-primaria: #E33988;
 $cor-secundaria: #A73CDF;
+*/
+
+/* Tema Catpuccin Mocha
+$cor-primaria: #FAB387;
+$cor-secundaria: #CBA6F7;
+$gradiente-catppucin: linear-gradient(
+  90deg,
+  #FAB387,
+  #F5C2E7,
+  #CBA6F7,
+  #A6E3A1,
+  #89B4FA
+);
+*/
+
+/* Tema Dimensional Interface
+$cor-primaria: #5EEAD4;
+$cor-secundaria: #D8B4FE;
+$gradiente-principal: linear-gradient(
+  120deg,
+  #5eead4 0%,
+  #86efac 28%,
+  #d8b4fe 62%,
+  #fda4af
+);
+*/
+
+
+// Variáveis Sass
 $cor-fundo: #0a0a0a;
-$gradiente-principal: linear-gradient(90deg, $cor-primaria 0%, $cor-secundaria 100%);
+$cor-primaria: #FAB387;
+$cor-secundaria: #CBA6F7;
+$gradiente-principal: linear-gradient(
+  90deg,
+  #FAB387,
+  #F5C2E7,
+  #CBA6F7,
+  #A6E3A1,
+  #89B4FA
+);
 $fonte-padrao: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 $fonte-serif: 'Playfair Display', serif;
 $fonte-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -31,6 +69,8 @@ $fonte-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
   --cor-borda: #1f1f1f;
   --cor-texto: #ffffff;
   --cor-texto-suave: #d1d5db;
+  --cor-texto-muted: #9ca3af;
+  --altura-navbar: 4rem;
 }
 
 body {
@@ -41,17 +81,4 @@ body {
 section {
   display: flex;
   min-height: 100vh;
-}
-
-.sobre-banner-text {
-  background: $gradiente-principal;
-  background-clip: text;
-  color: transparent;
-}
-
-.sobre-banner-img {
-  background: $gradiente-principal;
-  border-radius: 33% 67% 53% 47% / 66% 41% 59% 34%;
-  height: 25rem;
-  width: 25rem;
 }

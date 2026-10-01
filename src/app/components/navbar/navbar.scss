@@ -1,5 +1,5 @@
 .navbar {
-  min-height: 4rem;
+  min-height: var(--altura-navbar);
   background-color: color-mix(in srgb, var(--cor-fundo) 80%, transparent);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--cor-borda);
