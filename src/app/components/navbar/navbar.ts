@@ -1,33 +1,33 @@
 import { Component } from '@angular/core';
 
-// Define um modelo de objeto dentro do componente
 interface ItemNavbar {
   titulo: string;
   url: string;
-  icone: string;
+  // icone: string;
 }
 
 @Component({
   imports: [],
   selector: 'app-navbar',
   templateUrl: './navbar.html',
+  styleUrl: './navbar.scss',
 })
 export class Navbar {
   public readonly itens: ItemNavbar[] = [
     {
-      titulo: 'Sobre',
+      titulo: 'SOBRE',
       url: '#sobre',
-      icone: 'bi-person',
+      // icone: 'bi-person',
     },
     {
-      titulo: 'Habilidades',
+      titulo: 'HABILIDADES',
       url: '#habilidades',
-      icone: 'bi-award',
+      // icone: 'bi-award',
     },
     {
-      titulo: 'Portfólio',
+      titulo: 'PORTFÓLIO',
       url: '#portfolio',
-      icone: 'bi-card-list',
+      // icone: 'bi-card-list',
     },
   ];
 }
