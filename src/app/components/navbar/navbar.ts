@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import 'bootstrap/js/dist/collapse';
 
 interface ItemNavbar {
   titulo: string;
   url: string;
-  // icone: string;
 }
 
 @Component({
@@ -12,22 +12,30 @@ interface ItemNavbar {
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
-export class Navbar {
+export class Navbar implements OnInit {
+  public rolada = false;
+
   public readonly itens: ItemNavbar[] = [
     {
-      titulo: 'SOBRE',
+      titulo: 'Sobre',
       url: '#sobre',
-      // icone: 'bi-person',
     },
     {
-      titulo: 'HABILIDADES',
+      titulo: 'Habilidades',
       url: '#habilidades',
-      // icone: 'bi-award',
     },
     {
-      titulo: 'PORTFÓLIO',
-      url: '#portfolio',
-      // icone: 'bi-card-list',
+      titulo: 'Projetos',
+      url: '#projetos',
     },
   ];
+
+  ngOnInit(): void {
+    this.atualizarRolagem();
+  }
+
+  @HostListener('window:scroll')
+  public atualizarRolagem(): void {
+    this.rolada = window.scrollY > 50;
+  }
 }
