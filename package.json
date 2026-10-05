@@ -21,6 +21,7 @@
     "bootstrap-icons": "^1.13.1",
     "gsap": "^3.15.0",
     "rxjs": "~7.8.0",
+    "simple-icons": "^12.4.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

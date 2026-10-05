@@ -218,7 +218,7 @@ h1 {
   max-width: 40rem;
   pointer-events: none;
 
-  svg {
+  > svg {
     display: block;
     width: 100%;
     height: auto;
@@ -250,11 +250,23 @@ h1 {
     stroke-width: 5;
   }
 
-  .music .note,
   .laptop-base,
   .laptop-cover,
   .paw .pads {
     stroke: var(--pink);
+  }
+
+  .music .tech {
+    fill: var(--pink);
+    stroke: none;
+    stroke-width: 0;
+
+    svg,
+    path {
+      fill: inherit;
+      stroke: none;
+      stroke-width: 0;
+    }
   }
 
   .table line,
