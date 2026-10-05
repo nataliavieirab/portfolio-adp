@@ -202,130 +202,76 @@ h1 {
 .sobre-visual {
   display: flex;
   justify-content: center;
-  width: 100%;
-  container-type: inline-size;
-}
-
-.sobre-orbita {
-  --raio: 27cqi;
-  position: relative;
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  width: 100cqi;
-  aspect-ratio: 1;
-  overflow: visible;
-  pointer-events: none;
-}
-
-.sobre-orbita::before {
-  content: '';
-  position: absolute;
-  width: calc(var(--raio) * 2);
-  aspect-ratio: 1;
-  box-sizing: border-box;
-  padding: 1.5px;
-  border-radius: 50%;
-  background: var(--nx-gradiente);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-.sobre-orbita-centro {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  width: calc(var(--raio) * 1.05);
-  aspect-ratio: 1;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
-
-  i {
-    font-size: calc(var(--raio) * 0.38);
-    line-height: 1;
-  }
-
-  i::before {
-    background: var(--nx-gradiente);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-}
-
-.sobre-orbita-trilha {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  transform-origin: center;
-  animation: sobre-orbita 24s linear infinite;
-}
-
-.sobre-badge {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  transform: rotate(calc(var(--indice) * 90deg)) translateY(calc(var(--raio) * -1));
-}
-
-.sobre-badge-face {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.3rem 0.7rem 0.3rem 0.35rem;
-  border: 1px solid var(--nx-borda);
-  border-radius: 999px;
-  background: var(--nx-vidro);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  color: var(--nx-texto);
-  font-family: var(--fonte-poppins);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  line-height: 1;
-  white-space: nowrap;
-  translate: -50% -50%;
-  transform: rotate(calc(var(--indice) * -90deg));
-  transform-origin: center;
-  animation: sobre-orbita-face 24s linear infinite;
+  width: 100%;
+  min-width: 0;
+}
 
-  img {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
+.sobre-bongo {
+  --bg: #1a1e2d;
+  --green: #764ba2;
+  --pink: #f093fb;
+  --blue: #667eea;
+  --orange: #fda085;
+  --cyan: #f5576c;
+  width: 90%;
+  max-width: 40rem;
+  pointer-events: none;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
   }
 }
 
-@container (max-width: 22rem) {
-  .sobre-badge-face {
-    gap: 0.3rem;
-    padding: 0.25rem 0.55rem 0.25rem 0.3rem;
-    font-size: 0.6875rem;
+#bongo-cat {
+  fill: var(--bg);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
 
-    img {
-      width: 22px;
-      height: 22px;
-    }
+  .laptop-cover,
+  .headphone .band {
+    fill: none;
+  }
+
+  .paw,
+  .head {
+    stroke: var(--orange);
+  }
+
+  .laptop-keyboard {
+    stroke-width: 2;
+  }
+
+  .terminal-code {
+    stroke-width: 5;
+  }
+
+  .music .note,
+  .laptop-base,
+  .laptop-cover,
+  .paw .pads {
+    stroke: var(--pink);
+  }
+
+  .table line,
+  .headphone .band,
+  .headphone .speaker path:nth-child(3) {
+    stroke: var(--green);
+  }
+
+  .terminal-frame,
+  .laptop-keyboard,
+  .headphone .speaker path:nth-child(2) {
+    stroke: var(--blue);
+  }
+
+  .terminal-code,
+  .headphone .speaker path:first-child {
+    stroke: var(--cyan);
   }
 }
 
@@ -414,21 +360,6 @@ h1 {
   .sobre-miolo {
     grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
   }
-
-  .sobre-orbita {
-    --raio: 31cqi;
-  }
-
-  .sobre-badge-face {
-    gap: 0.6rem;
-    padding: 0.5rem 1.1rem 0.5rem 0.55rem;
-    font-size: 1.15rem;
-
-    img {
-      width: 40px;
-      height: 40px;
-    }
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -438,11 +369,6 @@ h1 {
 
   .sobre-card::before {
     opacity: 0;
-  }
-
-  .sobre-orbita-trilha,
-  .sobre-badge-face {
-    animation: none;
   }
 
   .sobre-botao-projetos:hover,
@@ -469,21 +395,5 @@ h1 {
 @keyframes sobre-cursor {
   50% {
     opacity: 0.5;
-  }
-}
-
-@keyframes sobre-orbita {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes sobre-orbita-face {
-  from {
-    transform: rotate(calc(var(--indice) * -90deg));
-  }
-
-  to {
-    transform: rotate(calc(var(--indice) * -90deg - 360deg));
   }
 }
