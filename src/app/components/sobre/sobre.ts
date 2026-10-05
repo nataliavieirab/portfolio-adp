@@ -15,6 +15,13 @@ export class Sobre implements OnInit, OnDestroy {
 
   public readonly icones = ['bi bi-code-slash', 'bi bi-braces', 'bi bi-stack'];
 
+  public readonly tecnologias = [
+    { nome: '.NET', imagem: 'https://skillicons.dev/icons?i=dotnet&theme=dark' },
+    { nome: 'C#', imagem: 'https://skillicons.dev/icons?i=cs&theme=dark' },
+    { nome: 'TypeScript', imagem: 'https://skillicons.dev/icons?i=ts&theme=dark' },
+    { nome: 'Angular', imagem: 'https://skillicons.dev/icons?i=angular&theme=dark' },
+  ];
+
   public readonly textoVisivel = signal('');
 
   private indiceFrase = 0;

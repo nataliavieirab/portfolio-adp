@@ -64,5 +64,23 @@
         }
       </div>
     </div> -->
+
+    <div class="sobre-visual">
+      <div class="sobre-orbita" aria-hidden="true">
+        <div class="sobre-orbita-centro">
+          <i class="bi bi-code-slash"></i>
+        </div>
+        <ul class="sobre-orbita-trilha">
+          @for (tech of tecnologias; track tech.nome; let i = $index) {
+            <li class="sobre-badge" [style.--indice]="i">
+              <div class="sobre-badge-face">
+                <img [src]="tech.imagem" alt="" width="28" height="28" />
+                <span>{{ tech.nome }}</span>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
