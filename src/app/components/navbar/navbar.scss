@@ -40,6 +40,17 @@
   background-color: var(--nx-rolada);
 }
 
+.navbar-progresso {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--nx-gradiente);
+  pointer-events: none;
+  transition: width 0.1s ease;
+}
+
 .navbar-brand {
   justify-self: start;
   margin: 0;
@@ -186,6 +197,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .navbar,
+  .navbar-progresso,
   .navbar-nav .nav-link,
   .navbar-nav .nav-link::after,
   .navbar-cta {
