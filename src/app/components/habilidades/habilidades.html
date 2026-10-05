@@ -1,0 +1,27 @@
+<section id="habilidades">
+  <div class="container my-5">
+    <h2 class="section-title">Habilidades</h2>
+
+    <p class="mt-5 fs-5 text-center">
+      Aqui, você poderá conhecer as principais tecnologias que utilizo no desenvolvimento de
+      aplicações.
+    </p>
+
+    <ul class="list-unstyled row row-cols-1 row-cols-lg-2 gx-5 gy-4 mt-5">
+      @for (habilidade of habilidades; track habilidade.titulo) {
+      <li class="col">
+        <article class="d-flex align-items-center gap-4 h-100 border-bottom pb-4">
+          <img width="64" height="64" [src]="habilidade.imagem" [alt]="habilidade.titulo" />
+
+          <div>
+            <h3 class="fs-4 fw-medium fst-italic text-primary-emphasis">
+              {{ habilidade.titulo }}
+            </h3>
+            <p class="fs-5 mb-0">{{ habilidade.descricao }}</p>
+          </div>
+        </article>
+      </li>
+      }
+    </ul>
+  </div>
+</section>

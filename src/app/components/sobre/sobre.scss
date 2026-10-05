@@ -1,74 +1,8 @@
-section {
-  --nx-vidro: rgba(255, 255, 255, 0.05);
-  --nx-borda: rgba(255, 255, 255, 0.1);
-  --nx-item: rgba(255, 255, 255, 0.03);
-  --nx-item-hover: rgba(255, 255, 255, 0.08);
-  --nx-texto: #ffffff;
-  --nx-suave: #a0a0b8;
-  --nx-roxo: #8b5cf6;
-  --nx-sombra: rgba(139, 92, 246, 0.3);
-  --nx-sombra-hover: rgba(139, 92, 246, 0.5);
-  --nx-vidro-hover: rgba(255, 255, 255, 0.1);
-  --nx-gradiente: linear-gradient(
-    135deg,
-    #667eea 0%,
-    #764ba2 25%,
-    #f093fb 50%,
-    #f5576c 75%,
-    #fda085 100%
-  );
-
+#sobre {
   position: relative;
-  display: flex;
-  min-height: 100vh;
   align-items: center;
   padding-top: calc(var(--altura-navbar) + 1.5rem);
   padding-bottom: 2.5rem;
-  background: linear-gradient(45deg, #0a0a0f, #1a1a2e, #16213e);
-}
-
-.sobre-orbes {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.sobre-orbe {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.5;
-  animation: sobre-flutuar ease-in-out infinite;
-}
-
-.sobre-orbe-roxo {
-  top: -12%;
-  left: -10%;
-  width: clamp(14rem, 42vw, 32rem);
-  height: clamp(14rem, 42vw, 32rem);
-  background: radial-gradient(circle, #8b5cf6, transparent);
-  animation-duration: 25s;
-}
-
-.sobre-orbe-rosa {
-  right: -10%;
-  bottom: -14%;
-  width: clamp(12rem, 36vw, 28rem);
-  height: clamp(12rem, 36vw, 28rem);
-  background: radial-gradient(circle, #ec4899, transparent);
-  animation-duration: 30s;
-  animation-delay: 5s;
-}
-
-.sobre-orbe-ciano {
-  top: 42%;
-  left: 38%;
-  width: clamp(10rem, 28vw, 22rem);
-  height: clamp(10rem, 28vw, 22rem);
-  background: radial-gradient(circle, #06b6d4, transparent);
-  animation-duration: 35s;
-  animation-delay: 10s;
 }
 
 .sobre-miolo {
@@ -347,7 +281,6 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sobre-orbe,
   .sobre-card::before {
     animation: none;
   }
@@ -364,25 +297,6 @@ h1 {
   .sobre-redes a:hover,
   .sobre-redes a:focus-visible {
     transform: none;
-  }
-}
-
-@keyframes sobre-flutuar {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  25% {
-    transform: translate(100px, -100px) scale(1.1);
-  }
-
-  50% {
-    transform: translate(-100px, 100px) scale(0.9);
-  }
-
-  75% {
-    transform: translate(50px, 50px) scale(1.05);
   }
 }
 
