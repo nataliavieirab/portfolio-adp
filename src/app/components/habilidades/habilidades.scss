@@ -1,0 +1,90 @@
+.habilidade-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--nx-borda);
+  border-radius: 20px;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.09), transparent 46%),
+    var(--nx-vidro);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 2px;
+    background: var(--nx-gradiente);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.3s ease;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -45%;
+    right: -18%;
+    width: 58%;
+    height: 90%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.28), transparent 68%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  img {
+    flex-shrink: 0;
+  }
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-5px);
+    border-color: rgba(139, 92, 246, 0.3);
+    background:
+      linear-gradient(155deg, rgba(255, 255, 255, 0.14), transparent 48%),
+      var(--nx-vidro-hover);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 10px 40px rgba(139, 92, 246, 0.2);
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.habilidade-card p {
+  color: var(--nx-suave);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .habilidade-card,
+  .habilidade-card::before,
+  .habilidade-card::after {
+    transition: none;
+  }
+
+  .habilidade-card:hover,
+  .habilidade-card:focus-within {
+    transform: none;
+  }
+}

@@ -51,7 +51,7 @@ $fonte-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
   $primary: $cor-primaria,
   $secondary: $cor-secundaria,
   $body-bg: $cor-fundo,
-  $font-family-base: $fonte-padrao,
+  $font-family-base: $fonte-poppins,
   $font-family-sans-serif: $fonte-padrao,
 );
 
@@ -70,7 +70,7 @@ $fonte-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
   --cor-texto: #ffffff;
   --cor-texto-suave: #d1d5db;
   --cor-texto-muted: #9ca3af;
-  --altura-navbar: 4rem;
+  --altura-navbar: 6rem;
   --nx-vidro: rgba(255, 255, 255, 0.05);
   --nx-borda: rgba(255, 255, 255, 0.1);
   --nx-item: rgba(255, 255, 255, 0.03);
