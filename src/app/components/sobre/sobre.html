@@ -68,6 +68,23 @@
     <div class="sobre-visual">
       <div class="sobre-bongo" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 783.55 354.91">
+          <defs>
+            <linearGradient id="bongo-glass-body" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22" />
+              <stop offset="46%" stop-color="#ffffff" stop-opacity="0.18" />
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02" />
+            </linearGradient>
+            <linearGradient id="bongo-glass-cover" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.28" />
+              <stop offset="40%" stop-color="#ffffff" stop-opacity="0.15" />
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0.04" />
+            </linearGradient>
+            <linearGradient id="bongo-glass-screen" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16" />
+              <stop offset="42%" stop-color="var(--glass-tint)" />
+              <stop offset="100%" stop-color="rgb(10 10 20)" stop-opacity="0.42" />
+            </linearGradient>
+          </defs>
           <g id="bongo-cat">
             <g class="head">
               <path
@@ -219,6 +236,7 @@
               @for (tech of tecnologiasDireita; track tech.nome) {
               <g [attr.transform]="'translate(' + tech.x + ' ' + tech.y + ')'">
                 <g class="tech">
+                  <rect class="tech-pill" x="-36" y="-36" width="72" height="72" rx="22" />
                   <svg [attr.viewBox]="tech.viewBox ?? '0 0 24 24'" width="60" height="60" x="-30" y="-30">
                     <path [attr.d]="tech.path" />
                   </svg>
@@ -230,6 +248,7 @@
               @for (tech of tecnologiasEsquerda; track tech.nome) {
               <g [attr.transform]="'translate(' + tech.x + ' ' + tech.y + ')'">
                 <g class="tech">
+                  <rect class="tech-pill" x="-36" y="-36" width="72" height="72" rx="22" />
                   <svg [attr.viewBox]="tech.viewBox ?? '0 0 24 24'" width="60" height="60" x="-30" y="-30">
                     <path [attr.d]="tech.path" />
                   </svg>

@@ -214,6 +214,11 @@ h1 {
   --blue: #667eea;
   --orange: #fda085;
   --cyan: #f5576c;
+  --glass-fill: rgba(255, 255, 255, 0.06);
+  --glass-fill-mid: rgba(255, 255, 255, 0.12);
+  --glass-tint: rgba(10, 10, 20, 0.28);
+  --glass-stroke: rgba(255, 255, 255, 0.28);
+  --glass-blur: 10px;
   width: 90%;
   max-width: 40rem;
   pointer-events: none;
@@ -227,39 +232,169 @@ h1 {
 }
 
 #bongo-cat {
-  fill: var(--bg);
+  fill: none;
+  stroke: var(--glass-stroke);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 4;
 
-  .laptop-cover,
-  .headphone .band {
+  // Escada sobre o gradiente do corpo: mesa 0.28, cabeça 0.52, base 0.64, patas 1.
+  .head > path:first-of-type {
+    fill: url('#bongo-glass-body');
+    fill-opacity: 0.52;
+    stroke: var(--glass-stroke);
+    stroke-opacity: 1;
+    stroke-width: 2.5;
+    filter: drop-shadow(0 0 5px var(--nx-sombra));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: blur(var(--glass-blur));
+  }
+
+  .head > path:not(:first-of-type) {
     fill: none;
-  }
-
-  .paw,
-  .head {
     stroke: var(--orange);
+    stroke-opacity: 1;
+    stroke-width: 4;
+    filter: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
-  .laptop-keyboard {
+  .headphone .speaker {
+    filter: drop-shadow(0 0 4px var(--nx-sombra));
+  }
+
+  .headphone .speaker path:first-child {
+    fill: var(--glass-fill);
+    fill-opacity: 1;
+    stroke: var(--cyan);
+    stroke-opacity: 0.5;
     stroke-width: 2;
   }
 
-  .terminal-code {
-    stroke-width: 5;
+  .headphone .speaker path:nth-child(2) {
+    fill: var(--glass-fill-mid);
+    fill-opacity: 1;
+    stroke: var(--blue);
+    stroke-opacity: 0.5;
+    stroke-width: 2;
   }
 
-  .laptop-base,
-  .laptop-cover,
-  .paw .pads {
+  .headphone .speaker path:nth-child(3) {
+    fill: var(--green);
+    fill-opacity: 0.9;
+    stroke: var(--green);
+    stroke-opacity: 0.55;
+    stroke-width: 1.5;
+  }
+
+  .headphone .band {
+    fill: none;
+    stroke: var(--green);
+    stroke-opacity: 0.45;
+    stroke-width: 4;
+    filter: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .table polygon {
+    fill: url('#bongo-glass-body');
+    fill-opacity: 0.28;
+    stroke: none;
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.4));
+    backdrop-filter: blur(calc(var(--glass-blur) * 0.4));
+  }
+
+  .table line {
+    fill: none;
+    stroke: var(--green);
+    stroke-opacity: 0.45;
+    stroke-width: 2.5;
+    filter: none;
+  }
+
+  .laptop-base {
+    fill: url('#bongo-glass-body');
+    fill-opacity: 0.64;
     stroke: var(--pink);
+    stroke-opacity: 0.5;
+    stroke-width: 2.5;
+    filter: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .laptop-keyboard {
+    fill: none;
+    stroke: var(--blue);
+    stroke-opacity: 0.35;
+    stroke-width: 1.5;
+    filter: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .paw .up > path,
+  .paw .down {
+    fill: url('#bongo-glass-body');
+    fill-opacity: 1;
+    stroke: var(--orange);
+    stroke-opacity: 0.52;
+    stroke-width: 2.75;
+    filter: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .paw .pads {
+    fill: rgba(255, 255, 255, 0.92);
+    fill-opacity: 1;
+    stroke: var(--pink);
+    stroke-opacity: 1;
+    stroke-width: 1.5;
+    filter: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .terminal-frame {
+    fill: url('#bongo-glass-screen');
+    stroke: var(--blue);
+    stroke-opacity: 0.5;
+    stroke-width: 2.5;
+    filter: none;
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: blur(var(--glass-blur));
+  }
+
+  .terminal-code {
+    fill: none;
+    stroke: var(--cyan);
+    stroke-opacity: 1;
+    stroke-width: 5;
+    filter: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .laptop-cover {
+    fill: url('#bongo-glass-cover');
+    stroke: color-mix(in srgb, white 58%, var(--pink));
+    stroke-opacity: 0.8;
+    stroke-width: 2.75;
+    filter: drop-shadow(0 0 6px var(--nx-sombra));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: blur(var(--glass-blur));
   }
 
   .music .tech {
     fill: var(--pink);
     stroke: none;
     stroke-width: 0;
+    filter: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
 
     svg,
     path {
@@ -269,21 +404,15 @@ h1 {
     }
   }
 
-  .table line,
-  .headphone .band,
-  .headphone .speaker path:nth-child(3) {
-    stroke: var(--green);
-  }
-
-  .terminal-frame,
-  .laptop-keyboard,
-  .headphone .speaker path:nth-child(2) {
-    stroke: var(--blue);
-  }
-
-  .terminal-code,
-  .headphone .speaker path:first-child {
-    stroke: var(--cyan);
+  .tech-pill {
+    fill: var(--glass-fill-mid);
+    fill-opacity: 1;
+    stroke: var(--glass-stroke);
+    stroke-opacity: 1;
+    stroke-width: 1.5;
+    filter: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 }
 
