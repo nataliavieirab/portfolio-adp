@@ -18,15 +18,15 @@ export class Navbar implements OnInit {
 
   public readonly itens: ItemNavbar[] = [
     {
-      titulo: 'Sobre',
+      titulo: 'About Me',
       url: '#sobre',
     },
     {
-      titulo: 'Habilidades',
+      titulo: 'Skills',
       url: '#habilidades',
     },
     {
-      titulo: 'Projetos',
+      titulo: 'Projects',
       url: '#projetos',
     },
   ];
@@ -42,8 +42,6 @@ export class Navbar implements OnInit {
 
     this.rolada = window.scrollY > 50;
     this.progresso =
-      alturaRolavel > 0
-        ? Math.min(100, Math.max(0, (window.scrollY / alturaRolavel) * 100))
-        : 0;
+      alturaRolavel > 0 ? Math.min(100, Math.max(0, (window.scrollY / alturaRolavel) * 100)) : 0;
   }
 }
