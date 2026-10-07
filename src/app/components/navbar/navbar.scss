@@ -127,19 +127,12 @@
   z-index: 1;
   isolation: isolate;
   justify-self: end;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem;
   border: 0;
   border-radius: 50px;
-  background-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--nx-texto);
-  font-size: 0.90rem;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  // font-size: 1rem;
-  // font-weight: 600;
-  // line-height: 1.2;
+  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
   -webkit-backdrop-filter: blur(20px);
@@ -149,66 +142,37 @@
     0 8px 32px rgba(0, 0, 0, 0.3);
   transition:
     transform 0.3s ease,
-    background-color 0.3s ease,
-    box-shadow 0.3s ease;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    border-radius: inherit;
-    background-image: var(--nx-gradiente);
-    background-size: 200% 200%;
-    animation: navbar-cta-glass-shift 3s ease-in-out infinite;
-    pointer-events: none;
-  }
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 
   &::before {
+    content: '';
+    position: absolute;
     inset: 0;
     z-index: 1;
     padding: 1.5px;
+    border-radius: inherit;
+    background: var(--nx-gradiente);
+    pointer-events: none;
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
     mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
     mask-composite: exclude;
-  }
-
-  &::after {
-    inset: 0;
-    z-index: -1;
-    opacity: 0.3;
-    transition: opacity 0.3s ease;
   }
 }
 
 .navbar-cta:hover,
 .navbar-cta:focus-visible {
   color: var(--nx-texto);
-  background-color: rgba(255, 255, 255, 0.18);
-  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-3px);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.55),
-    0 15px 40px rgba(0, 0, 0, 0.4);
-}
-
-.navbar-cta:hover::after,
-.navbar-cta:focus-visible::after {
-  opacity: 0.45;
-}
-
-@keyframes navbar-cta-glass-shift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
+    0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 @media (min-width: 992px) {
@@ -266,14 +230,8 @@
   .navbar-nav .nav-link,
   .navbar-nav .nav-link::after,
   .navbar-cta,
-  .navbar-cta::before,
-  .navbar-cta::after {
+  .navbar-cta::before {
     transition: none;
-  }
-
-  .navbar-cta::before,
-  .navbar-cta::after {
-    animation: none;
   }
 
   .navbar-cta:hover,

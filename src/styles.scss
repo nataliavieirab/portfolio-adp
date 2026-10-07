@@ -107,7 +107,8 @@ app-root {
 
 app-root > app-navbar,
 app-root > app-sobre,
-app-root > app-habilidades {
+app-root > app-habilidades,
+app-root > app-projetos {
   position: relative;
   z-index: 1;
   display: block;
@@ -126,7 +127,7 @@ section {
   width: fit-content;
   margin-inline: auto;
   font-size: calc(1.425rem + 2.1vw);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
   background: var(--nx-gradiente);
   background-clip: text;
@@ -143,7 +144,7 @@ section {
   display: block;
   color: var(--nx-suave);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
