@@ -44,9 +44,9 @@ const pathSql =
 })
 export class Sobre implements OnInit, AfterViewInit, OnDestroy {
   public readonly frases = [
-    'Desenvolvedora Full-Stack em formação',
-    'C# ⭒ TypeScript ⭒ JavaScript',
-    '.NET ⭒ ASP.NET Core ⭒ Node.js',
+    ' Full-Stack Developer',
+    // 'C# ⭒ TypeScript ⭒ JavaScript',
+    // ' C# | TypeScript | .NET | Node.js | Angular',
   ];
 
   public readonly icones = ['bi bi-code-slash', 'bi bi-braces', 'bi bi-stack'];
