@@ -1,59 +1,93 @@
 <section id="projetos">
-  <article class="container d-flex flex-column my-5">
-    <!-- <h2 class="display-5 fw-medium fst-italic text-center text-primary">Projetos</h2> -->
+  <div class="container my-5">
     <div class="section-header">
       <span class="section-kicker"> Portfolio</span>
-      <h2 class="section-heading">
-        Featured <span class="section-heading-accent">Projects</span>
-      </h2>
+      <h2 class="section-heading">Featured <span class="section-heading-accent">Projects</span></h2>
       <div class="section-underline" aria-hidden="true"></div>
     </div>
 
-    <p class="fs-5 mt-5 text-center">
-      Nesta seção, apresento projetos que refletem minha experiência e minhas habilidades como
-      desenvolvedor. Cada item reúne uma descrição detalhada, as tecnologias utilizadas e os links
-      para visualizar a imagem do projeto ou acessar seu código-fonte.
-    </p>
-
-    <ol>
-      @for (projeto of projetos; track projeto.titulo; let indice = $index) {
-      <li class="d-flex align-items-start gap-4 border-bottom border-dark-subtle py-4">
-        <span class="fs-1 fw-medium fst-italic" aria-hidden="true">{{
-          (indice + 1).toString().padStart(2, '0')
-          }}</span>
-
-        <article class="d-flex flex-column gap-3 flex-grow-1 pt-3">
-          <h3 class="fs-2 fw-medium fst-italic text-primary">{{ projeto.titulo }}</h3>
-
-          <p class="fs-5 mb-0">{{ projeto.descricao }}</p>
-
-          <div class="d-flex flex-wrap align-items-center gap-3 mt-3">
-            <div class="d-flex flex-wrap gap-2" aria-label="Tecnologias utilizadas">
-              @for (tecnologia of projeto.tecnologias; track tecnologia) {
-              <span class="badge rounded-pill border border-light-subtle text-dark px-3 py-2">
-                {{ tecnologia }}
-              </span>
-              }
-            </div>
-
-            <div class="d-flex flex-wrap gap-2 ms-auto">
-              @if (projeto.urlImagem) {
-              <button type="button" class="btn btn-outline-dark rounded-pill d-inline-flex align-items-center gap-2">
-                <i class="bi bi-image"></i>
-                Ver Imagem
-              </button>
-              }
-
-              <a [href]="projeto.urlRepositorio" target="_blank" rel="noopener noreferrer"
-                class="btn btn-outline-dark rounded-pill d-inline-flex align-items-center gap-2">
-                <i class="bi bi-github"></i>
-                Repositório
-              </a>
-            </div>
-          </div>
-        </article>
-      </li>
+    <div class="projeto-filtros" role="group" aria-label="Filtrar projetos">
+      @for (filtro of filtros; track filtro.valor) {
+      <button type="button" class="projeto-filtro" [class.is-ativo]="filtroAtivo === filtro.valor"
+        [attr.aria-pressed]="filtroAtivo === filtro.valor" (click)="selecionarFiltro(filtro.valor)">
+        {{ filtro.rotulo }}
+      </button>
       }
-    </ol>
-  </article>
+    </div>
+
+    <div class="projeto-grade">
+      @for (projeto of projetosVisiveis; track projeto.id) {
+      <article class="projeto-card">
+        <div class="projeto-midia">
+          @if (projeto.urlImagem && !imagemQuebrada(projeto.id)) {
+          <img [src]="projeto.urlImagem" [alt]="'Captura do projeto ' + projeto.titulo"
+            (error)="registrarImagemQuebrada(projeto.id)" />
+          } @else {
+          <div class="projeto-midia-painel">
+            <span>{{ projeto.titulo }}</span>
+          </div>
+          }
+
+          @if (projeto.urlDemo || projeto.urlRepositorio) {
+          <div class="projeto-veu">
+            @if (projeto.urlDemo) {
+            <a class="projeto-atalho" [href]="projeto.urlDemo" target="_blank" rel="noopener noreferrer"
+              [attr.aria-label]="'Abrir demo de ' + projeto.titulo">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+            </a>
+            }
+            @if (projeto.urlRepositorio) {
+            <a class="projeto-atalho" [href]="projeto.urlRepositorio" target="_blank" rel="noopener noreferrer"
+              [attr.aria-label]="'Repositório de ' + projeto.titulo">
+              <i class="bi bi-github" aria-hidden="true"></i>
+            </a>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="projeto-corpo">
+          <p class="projeto-contexto">{{ projeto.contexto }}</p>
+          <h3 class="projeto-titulo">{{ projeto.titulo }}</h3>
+          <p class="projeto-descricao">{{ projeto.descricao }}</p>
+
+          <!-- <ul class="projeto-destaques">
+              @for (destaque of projeto.destaques; track destaque) {
+                <li>{{ destaque }}</li>
+              }
+            </ul> -->
+
+          <div class="projeto-tags">
+            @for (tecnologia of projeto.tecnologias; track tecnologia) {
+            <span class="projeto-tag">{{ tecnologia }}</span>
+            }
+          </div>
+
+          <!-- @if (projeto.urlRepositorio || projeto.urlDemo || projeto.linksExtras.length) {
+          <div class="projeto-links">
+            @if (projeto.urlRepositorio) {
+            <a class="projeto-botao projeto-botao-secundario" [href]="projeto.urlRepositorio" target="_blank"
+              rel="noopener noreferrer">
+              Ver repositório
+            </a>
+            }
+            @if (projeto.urlDemo) {
+            <a class="projeto-botao projeto-botao-primario" [href]="projeto.urlDemo" target="_blank"
+              rel="noopener noreferrer">
+              Ver demo
+            </a>
+            }
+            @for (link of projeto.linksExtras; track link.url) {
+            <a class="projeto-botao projeto-botao-primario" [href]="link.url" target="_blank" rel="noopener noreferrer">
+              {{ link.rotulo }}
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+            </a>
+            }
+          </div>
+          } -->
+        </div>
+      </article>
+      }
+    </div>
+  </div>
 </section>
