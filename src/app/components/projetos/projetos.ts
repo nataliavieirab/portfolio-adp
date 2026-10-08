@@ -59,8 +59,7 @@ export class Projetos {
       categoria: 'dotnet',
       linksExtras: [],
       urlRepositorio: 'https://github.com/nataliavieirab/bar-management-system',
-      urlDemo:
-        'https://controle-de-bar-dotsisters-c5a3dng5a2b9gahm.canadacentral-01.azurewebsites.net/',
+      urlDemo: '',
       urlImagem: '/projects/controle-de-bar.gif',
     },
     {
@@ -77,9 +76,9 @@ export class Projetos {
       tecnologias: ['.NET 10', 'MVC', 'EF Core', 'SQL Server', 'Azure'],
       categoria: 'dotnet',
       linksExtras: [],
-      urlRepositorio: '',
+      urlRepositorio: 'https://github.com/nataliavieirab/academic-management-system',
       urlDemo: '',
-      urlImagem: '',
+      urlImagem: '/projects/escola-de-cursos.gif',
     },
     {
       id: 'francheasy',
@@ -100,7 +99,7 @@ export class Projetos {
           url: 'https://repositorio.ufsc.br/handle/123456789/262497',
         },
       ],
-      urlRepositorio: '',
+      urlRepositorio: 'https://github.com/nataliavieirab/francheasy-api',
       urlDemo: '',
       urlImagem: '',
     },
